@@ -7,4 +7,296 @@
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
-:root { --primary: #4A90D9; --primary-light: #6BA8E7; --primary-dark: #2E6DB4; --accent: #F4A261; --bg: #f5efe6; --card-bg: #FFFFFF; --text: #2D3748; --text-light: #718096; --success: 
+:root { --primary: #4A90D9; --primary-light: #6BA8E7; --primary-dark: #2E6DB4; --accent: #F4A261; --bg: #f5efe6; --card-bg: #FFFFFF; --text: #2D3748; --text-light: #718096; --success: #48BB78; --kabyle: #C0392B; --gold: #D4A574; }
+body { font-family: 'Quicksand', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
+.confetti-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999; }
+.confetti { position: absolute; width: 10px; height: 10px; opacity: 0; animation: confetti-fall 3s ease-out forwards; }
+@keyframes confetti-fall { 0% { opacity: 1; transform: translateY(-100vh) rotate(0deg); } 100% { opacity: 0; transform: translateY(100vh) rotate(720deg); } }
+.hero { min-height: 100vh; background: linear-gradient(180deg, #b8d9f0 0%, #d6eaf8 35%, #e8f4fd 65%, #f5efe6 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px 20px; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 50%); animation: hero-pulse 6s ease-in-out infinite; }
+@keyframes hero-pulse { 0%, 100% { transform: scale(1); opacity: 0.5; } 50% { transform: scale(1.1); opacity: 0.8; } }
+.hero-content { position: relative; z-index: 2; }
+.hero h1 { font-family: 'Dancing Script', cursive; font-size: clamp(2.5rem, 6vw, 5rem); color: white; margin-bottom: 10px; text-shadow: 2px 2px 10px rgba(0,0,0,0.2); }
+.hero .subtitle { font-size: clamp(1rem, 2.5vw, 1.5rem); color: rgba(255,255,255,0.9); margin-bottom: 40px; font-weight: 300; }
+.hero .emoji-big { font-size: clamp(3rem, 8vw, 6rem); margin-bottom: 20px; animation: float 3s ease-in-out infinite; }
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+.hero .secret-badge { display: inline-block; background: rgba(255,255,255,0.2); border: 2px solid rgba(255,255,255,0.5); border-radius: 30px; padding: 10px 25px; font-size: 1rem; color: white; margin-top: 10px; }
+.kabyle-divider { height: 4px; background: repeating-linear-gradient(90deg, var(--kabyle) 0px, var(--kabyle) 20px, var(--gold) 20px, var(--gold) 40px, white 40px, white 60px, var(--kabyle) 60px, var(--kabyle) 80px); }
+.section { max-width: 1200px; margin: 0 auto; padding: 60px 20px; }
+.section-title { text-align: center; font-size: clamp(1.8rem, 4vw, 2.5rem); color: var(--primary-dark); margin-bottom: 15px; font-weight: 700; }
+.section-subtitle { text-align: center; color: var(--text-light); font-size: 1.1rem; margin-bottom: 50px; }
+.category-tabs { display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; flex-wrap: wrap; }
+.category-tab { padding: 12px 28px; border-radius: 30px; border: 2px solid var(--primary); background: white; color: var(--primary); font-weight: 600; cursor: pointer; transition: all 0.3s; font-size: 0.95rem; font-family: 'Quicksand', sans-serif; }
+.category-tab:hover, .category-tab.active { background: var(--primary); color: white; transform: translateY(-2px); box-shadow: 0 4px 15px rgba(74,144,217,0.3); }
+.gift-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
+.gift-card { background: var(--card-bg); border-radius: 20px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: all 0.3s; position: relative; }
+.gift-card:hover { transform: translateY(-5px); box-shadow: 0 8px 30px rgba(0,0,0,0.15); }
+.gift-card.reserved { opacity: 0.6; }
+.gift-card.reserved .gift-image-placeholder { filter: grayscale(80%); }
+.gift-card.reserved .reserved-overlay { display: flex; }
+.reserved-overlay { display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 10; align-items: center; justify-content: center; flex-direction: column; border-radius: 20px; }
+.reserved-overlay .reserved-text { background: var(--success); color: white; padding: 10px 25px; border-radius: 30px; font-weight: 700; font-size: 1rem; margin-bottom: 8px; }
+.reserved-overlay .reserved-by { color: white; font-size: 0.9rem; opacity: 0.9; }
+.gift-image-placeholder { width: 100%; height: 220px; background: linear-gradient(135deg, #E8F4FD, #D4E8F7); display: flex; align-items: center; justify-content: center; font-size: 4rem; }
+.gift-content { padding: 20px; }
+.gift-category { display: inline-block; background: var(--primary-light); color: white; padding: 4px 12px; border-radius: 15px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+.gift-category.essential { background: var(--primary); }
+.gift-category.practical { background: var(--accent); }
+.gift-category.coup-de-coeur { background: var(--kabyle); }
+.gift-name { font-size: 1.2rem; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+.gift-description { font-size: 0.9rem; color: var(--text-light); margin-bottom: 15px; line-height: 1.5; }
+.gift-price { font-size: 1.4rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 15px; }
+.gift-actions { display: flex; gap: 10px; }
+.btn-reserve { flex: 1; padding: 12px 20px; border-radius: 12px; border: none; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.btn-reserve:hover { transform: translateY(-2px); box-shadow: 0 4px 15px rgba(74,144,217,0.4); }
+.btn-reserve:disabled { background: var(--success); cursor: default; transform: none; box-shadow: none; }
+.btn-link { padding: 12px 18px; border-radius: 12px; border: 2px solid var(--primary); background: white; color: var(--primary); font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: all 0.3s; text-decoration: none; display: flex; align-items: center; gap: 5px; font-family: 'Quicksand', sans-serif; }
+.btn-link:hover { background: var(--primary); color: white; }
+.modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; align-items: center; justify-content: center; padding: 20px; }
+.modal-overlay.active { display: flex; }
+.modal { background: white; border-radius: 20px; padding: 35px; max-width: 450px; width: 100%; text-align: center; animation: modal-in 0.3s ease; }
+@keyframes modal-in { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.modal h3 { font-size: 1.5rem; color: var(--primary-dark); margin-bottom: 10px; }
+.modal p { color: var(--text-light); margin-bottom: 25px; }
+.modal input { width: 100%; padding: 14px 18px; border: 2px solid #E2E8F0; border-radius: 12px; font-size: 1rem; font-family: 'Quicksand', sans-serif; margin-bottom: 15px; transition: border-color 0.3s; }
+.modal input:focus { outline: none; border-color: var(--primary); }
+.modal .checkbox-group { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; justify-content: center; }
+.modal .checkbox-group input[type="checkbox"] { width: auto; margin: 0; }
+.modal .checkbox-group label { font-size: 0.95rem; color: var(--text-light); }
+.modal-buttons { display: flex; gap: 10px; }
+.btn-confirm { flex: 1; padding: 14px; border-radius: 12px; border: none; background: linear-gradient(135deg, var(--success), #38A169); color: white; font-weight: 700; font-size: 1rem; cursor: pointer; font-family: 'Quicksand', sans-serif; transition: all 0.3s; }
+.btn-confirm:hover { transform: translateY(-2px); box-shadow: 0 4px 15px rgba(72,187,120,0.4); }
+.btn-cancel { flex: 1; padding: 14px; border-radius: 12px; border: 2px solid #E2E8F0; background: white; color: var(--text-light); font-weight: 600; font-size: 1rem; cursor: pointer; font-family: 'Quicksand', sans-serif; transition: all 0.3s; }
+.btn-cancel:hover { border-color: var(--text-light); }
+footer { background: linear-gradient(135deg, #2D3748, #1A202C); color: white; text-align: center; padding: 40px 20px; }
+footer .heart { font-size: 2rem; margin-bottom: 10px; animation: heartbeat 1.5s ease-in-out infinite; }
+@keyframes heartbeat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
+footer p { opacity: 0.8; font-size: 0.95rem; line-height: 1.6; }
+.toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--success); color: white; padding: 15px 30px; border-radius: 15px; font-weight: 600; z-index: 2000; transition: transform 0.4s cubic-bezier(0.4,0,0.2,1); box-shadow: 0 4px 20px rgba(72,187,120,0.4); }
+.toast.show { transform: translateX(-50%) translateY(0); }
+@media (max-width: 768px) { .gift-grid { grid-template-columns: 1fr; } .countdown { gap: 10px; } .category-tabs { gap: 8px; } .category-tab { padding: 8px 18px; font-size: 0.85rem; } }
+
+/* NUAGES */
+.clouds-layer{position:absolute;inset:0;pointer-events:none;z-index:1;overflow:hidden;}
+.cloud{position:absolute;background:rgba(255,255,255,0.88);border-radius:50px;}
+.cloud::before,.cloud::after{content:'';position:absolute;background:rgba(255,255,255,0.88);border-radius:50%;}
+.cloud-1{width:180px;height:55px;top:12%;left:5%;}
+.cloud-1::before{width:80px;height:80px;top:-35px;left:25px;}
+.cloud-1::after{width:60px;height:60px;top:-25px;left:75px;}
+.cloud-2{width:140px;height:45px;top:22%;right:8%;}
+.cloud-2::before{width:65px;height:65px;top:-30px;left:20px;}
+.cloud-2::after{width:50px;height:50px;top:-20px;left:60px;}
+.cloud-3{width:200px;height:60px;top:8%;left:38%;}
+.cloud-3::before{width:90px;height:90px;top:-40px;left:30px;}
+.cloud-3::after{width:70px;height:70px;top:-30px;left:90px;}
+.cloud-4{width:120px;height:40px;top:38%;left:15%;}
+.cloud-4::before{width:55px;height:55px;top:-25px;left:15px;}
+.cloud-4::after{width:45px;height:45px;top:-18px;left:55px;}
+.cloud-5{width:160px;height:50px;top:30%;right:15%;}
+.cloud-5::before{width:70px;height:70px;top:-32px;left:22px;}
+.cloud-5::after{width:55px;height:55px;top:-22px;left:70px;}
+/* NOUNOURS */
+.bears-layer{position:absolute;inset:0;pointer-events:none;z-index:2;}
+.bear{position:absolute;font-size:2.4rem;animation:floatBear ease-in-out infinite;filter:drop-shadow(0 4px 8px rgba(0,0,0,0.12));}
+.bear-1{top:10%;left:7%;animation-duration:6s;animation-delay:0s;}
+.bear-2{top:20%;right:9%;animation-duration:7s;animation-delay:-2s;}
+.bear-3{top:6%;left:38%;animation-duration:5.5s;animation-delay:-1s;}
+.bear-4{top:32%;right:22%;animation-duration:8s;animation-delay:-3s;}
+.bear-5{top:28%;left:22%;animation-duration:6.5s;animation-delay:-4s;}
+@keyframes floatBear{0%,100%{transform:translateY(0) rotate(-3deg);}50%{transform:translateY(-12px) rotate(3deg);}}
+/* HERO TEXTE SOMBRE */
+.hero h1{color:#2c3e50!important;text-shadow:none!important;}
+.hero .subtitle{color:#5a6a7a!important;}
+.hero .secret-badge{background:rgba(74,144,217,0.15)!important;border-color:rgba(74,144,217,0.4)!important;color:#2a6496!important;}
+/* INTRO */
+.intro-section{background:linear-gradient(135deg,#e8f4fd 0%,#f5efe6 100%);padding:64px 20px;border-bottom:1px solid rgba(74,144,217,0.12);}
+.intro-card{max-width:720px;margin:0 auto;text-align:center;}
+.intro-icon{font-size:3rem;margin-bottom:20px;display:block;animation:floatBear 5s ease-in-out infinite;}
+.intro-title{font-family:'Dancing Script',cursive;font-size:clamp(1.8rem,4vw,2.6rem);color:#2c3e50;margin-bottom:20px;}
+.intro-text{font-size:1.05rem;color:#5a6a7a;line-height:1.9;margin-bottom:16px;}
+.intro-thanks{display:inline-block;background:rgba(74,144,217,0.1);border:1px solid rgba(74,144,217,0.25);border-radius:16px;padding:20px 32px;font-size:1rem;color:#2a6496;font-weight:500;line-height:1.8;margin-top:12px;}
+.intro-thanks strong{color:#2c3e50;}
+.intro-divider{display:flex;align-items:center;justify-content:center;gap:16px;margin:24px 0;}
+.intro-divider hr{flex:1;max-width:80px;border:none;border-top:1px solid rgba(74,144,217,0.3);}
+/* CTA */
+.hero-cta{display:inline-flex;align-items:center;gap:10px;background:#4a90d9;color:white!important;font-weight:700;font-size:1rem;padding:16px 36px;border-radius:50px;text-decoration:none;transition:all 0.3s;box-shadow:0 8px 32px rgba(74,144,217,0.35);margin-top:20px;}
+.hero-cta:hover{background:#2a6496;transform:translateY(-3px);}
+
+</style>
+</head>
+<body>
+<div class="confetti-container" id="confettiContainer"></div>
+<section class="hero">
+  <div class="clouds-layer">
+    <div class="cloud cloud-1"></div>
+    <div class="cloud cloud-2"></div>
+    <div class="cloud cloud-3"></div>
+    <div class="cloud cloud-4"></div>
+    <div class="cloud cloud-5"></div>
+  </div>
+  <div class="bears-layer">
+    <span class="bear bear-1">&#x1F9F8;</span>
+    <span class="bear bear-2">&#x1F9F8;</span>
+    <span class="bear bear-3">&#x1F9F8;</span>
+    <span class="bear bear-4">&#x1F9F8;</span>
+    <span class="bear bear-5">&#x1F9F8;</span>
+  </div>
+<div class="hero-content" style="position:relative;z-index:3;">
+<div class="emoji-big">&#128118;</div>
+<h1>Un petit bonhomme arrive...</h1>
+<p class="subtitle">Et nous avons besoin de vous pour l'accueillir comme il se doit !</p>
+
+<div class="countdown" id="countdown">
+<div class="countdown-item"><span class="number" id="days">--</span><span class="label">Jours</span></div>
+<div class="countdown-item"><span class="number" id="hours">--</span><span class="label">Heures</span></div>
+<div class="countdown-item"><span class="number" id="minutes">--</span><span class="label">Minutes</span></div>
+<div class="countdown-item"><span class="number" id="seconds">--</span><span class="label">Secondes</span></div>
+</div></div>
+<div class="secret-badge">&#128274; Le pr&#233;nom est un secret... pour l'instant !</div>
+</div></section>
+<section class="intro-section" id="intro">
+  <div class="intro-card">
+    <span class="intro-icon">&#x1F9F8;</span>
+    <h2 class="intro-title">Un petit garcon arrive bientot !</h2>
+    <p class="intro-text">
+      Nous sommes tellement heureux de partager cette nouvelle avec vous.<br>
+      Notre petit garcon est attendu pour le <strong>7 aout 2026</strong>, et chaque jour qui passe nous rapproche du moment le plus beau de notre vie. &#x1F499;
+    </p>
+    <p class="intro-text">
+      Cette liste a ete preparee avec soin pour vous aider a choisir un cadeau qui lui sera vraiment utile.
+      Pas d'obligation bien sur — votre presence et votre amour sont deja le plus beau des cadeaux.
+    </p>
+    <div class="intro-divider"><hr><span>&#x1F9F8;</span><hr></div>
+    <div class="intro-thanks">
+      <strong>Un grand merci a chacun d'entre vous</strong> &#x1F64F;<br>
+      A nos familles, nos amis proches, et tous ceux qui nous entourent avec tant d'amour.<br>
+      Votre soutien compte enormement — notre petit garcon a deja de la chance de vous avoir dans sa vie. &#x2764;&#xFE0F;
+    </div>
+  </div>
+</section>
+
+<div class="kabyle-divider"></div>
+<section class="section">
+<h2 class="section-title">&#127873; Notre liste de naissance</h2>
+<p class="section-subtitle">Choisissez un cadeau qui fera plaisir &#224; notre petit bonhomme !</p>
+<div class="category-tabs">
+<button class="category-tab active" data-category="all">&#127760; Tout voir</button>
+<button class="category-tab" data-category="essential">&#9989; Essentiel</button>
+<button class="category-tab" data-category="practical">&#128295; Pratique</button>
+<button class="category-tab" data-category="coup-de-coeur">&#10084;&#65039; Coup de coeur</button>
+</div>
+<div class="gift-grid" id="giftGrid"></div>
+</section>
+<div class="kabyle-divider"></div>
+<footer>
+<div class="heart">&#10084;&#65039;</div>
+<p>Merci de faire partie de cette belle aventure avec nous !</p>
+<p style="margin-top: 10px; font-size: 0.85rem; opacity: 0.6;">Fait avec amour pour notre petit bonhomme &#128118;</p>
+</footer>
+<div class="modal-overlay" id="modalOverlay">
+<div class="modal">
+<h3 id="modalTitle">&#127873; R&#233;server ce cadeau</h3>
+<p id="modalDesc">Entrez votre nom pour r&#233;server cet article</p>
+<input type="text" id="nameInput" placeholder="Votre nom (ou laissez vide pour rester anonyme)" />
+<div class="checkbox-group"><input type="checkbox" id="anonymousCheck" /><label for="anonymousCheck">Je pr&#233;f&#232;re rester anonyme</label></div>
+<div class="modal-buttons">
+<button class="btn-confirm" id="confirmBtn">&#10003; Confirmer</button>
+<button class="btn-cancel" id="cancelBtn">Annuler</button>
+</div></div></div>
+<div class="toast" id="toast">&#10003; R&#233;servation enregistr&#233;e !</div>
+<script>
+var gifts = [
+{id:1,name:"Poussette trio Moov 2 - Kinderkraft",description:"Poussette combin\u00e9e 3-en-1 (poussette + nacelle + si\u00e8ge auto). Utilisable d\u00e8s la naissance jusqu'\u00e0 22 kg. Le must-have pour les promenades !",price:"349,99 \u20ac",category:"essential",emoji:"\ud83d\udcb0",link:"https://www.vertbaudet.fr/poussette-trio-moov-2-pratique-et-confortable-noir.htm"},
+{id:2,name:"Si\u00e8ge auto \u00e9volutif I-Size - Nania",description:"Si\u00e8ge auto \u00e9volutif 40-150 cm, homologu\u00e9 i-Size. S\u00e9curit\u00e9 maximale pour les trajets en voiture.",price:"76,93 \u20ac",category:"essential",emoji:"\ud83d\ude97",link:"https://www.carrefour.fr/r/bebe/voyage/sieges-auto"},
+{id:3,name:"Lit b\u00e9b\u00e9 Cocoon + matelas - Vertbaudet",description:"Lit b\u00e9b\u00e9 en bois avec barreaux, disponible en blanc. Inclut un matelas adapt\u00e9 pour des nuits douces et s\u00e9curis\u00e9es.",price:"149,00 \u20ac",category:"essential",emoji:"\ud83d\udecc",link:"https://www.vertbaudet.fr/chambre-et-rangement/chambre/lit-bebe-lit-enfant/lit-bebe/matiere%3Dbois.htm"},
+{id:4,name:"Pack gigoteuses x3 - Vertbaudet",description:"Lot de 3 gigoteuses en coton bio, tailles 0-6 mois. Confortables et pratiques pour les nuits de b\u00e9b\u00e9.",price:"39,99 \u20ac",category:"essential",emoji:"\ud83d\ude34",link:"https://www.vertbaudet.fr/vetements-bebe/gigoteuse.htm"},
+{id:5,name:"Lot bodies & pyjamas x5 - Vertbaudet",description:"Pack de 5 ensembles bodies et pyjamas en coton, couleurs douces pour gar\u00e7on. L'essentiel pour les premiers mois !",price:"44,99 \u20ac",category:"essential",emoji:"\ud83d\udc55",link:"https://www.vertbaudet.fr/vetements-bebe/naissance.htm"},
+{id:6,name:"Lot biberons Natural+ Philips Avent",description:"Pack de 4 biberons avec t\u00e9tines d\u00e9bit lent. Design anti-colique pour un allaitement serein.",price:"29,99 \u20ac",category:"essential",emoji:"\ud83e\udec3",link:"https://www.amazon.fr/s?k=biberons+philips+avent+natural"},
+{id:7,name:"Couverture d'emmaillotage en coton bio",description:"Couverture douce et l\u00e9g\u00e8re en coton bio, id\u00e9ale pour emmailloter b\u00e9b\u00e9 en toute s\u00e9curit\u00e9.",price:"24,99 \u20ac",category:"essential",emoji:"\ud83e\ude75",link:"https://www.amazon.fr/s?k=couverture+emmaillotage+bebe+garcon"},
+{id:8,name:"Table \u00e0 langer pliante - Aubert",description:"Table \u00e0 langer compacte et pliante, facile \u00e0 ranger. Avec rangements int\u00e9gr\u00e9s pour les affaires de b\u00e9b\u00e9.",price:"89,90 \u20ac",category:"practical",emoji:"\ud83e\ude79",link:"https://www.aubert.com/c/3486153/produits/chambre/table-a-langer"},
+{id:9,name:"Transat b\u00e9b\u00e9 \u00e9volutif - Babybj\u00f6rn",description:"Transat ergonomique qui grandit avec b\u00e9b\u00e9. Id\u00e9al pour les moments d'\u00e9veil et de d\u00e9tente.",price:"149,00 \u20ac",category:"practical",emoji:"\ud83d\udcbf",link:"https://www.amazon.fr/s?k=transat+bebe+babybjorn"},
+{id:10,name:"Babycook N\u00e9o - B\u00e9aba",description:"Robot cuiseur mixeur pour pr\u00e9parer les repas de b\u00e9b\u00e9 maison. Cuit, mixe, d\u00e9cong\u00e8le et r\u00e9chauffe !",price:"139,99 \u20ac",category:"practical",emoji:"\ud83c\udf73",link:"https://www.beaba.com/fr-fr/babycook-neo"},
+{id:11,name:"Thermom\u00e8tre de bain \u00e9lectronique",description:"Thermom\u00e8tre de bain avec affichage LED. Indicateur de temp\u00e9rature id\u00e9al pour un bain en toute s\u00e9curit\u00e9.",price:"14,99 \u20ac",category:"practical",emoji:"\ud83c\udf21\ufe0f",link:"https://www.amazon.fr/s?k=thermometre+bain+bebe"},
+{id:12,name:"Veilleuse nomade - Pabobo",description:"Veilleuse nomade rechargeable, douce lumi\u00e8re pour rassurer b\u00e9b\u00e9 la nuit. Design mignon et pratique !",price:"34,90 \u20ac",category:"practical",emoji:"\ud83c\udf1f",link:"https://www.amazon.fr/s?k=veilleuse+nomade+bebe+pabobo"},
+{id:13,name:"Tapis d'\u00e9veil arch de jeu",description:"Tapis d'\u00e9veil avec arches de jeu et jouets suspendus. Stimule l'\u00e9veil sensoriel de b\u00e9b\u00e9 d\u00e8s les premiers mois.",price:"49,99 \u20ac",category:"practical",emoji:"\ud83c\udf81",link:"https://www.vertbaudet.fr/jeux-et-eveil/eveil/tapis-d-eveil.htm"},
+{id:14,name:"Doudou personnalis\u00e9 pr\u00e9nom",description:"Doudou doux brod\u00e9 du pr\u00e9nom de b\u00e9b\u00e9 (quand on le conna\u00eetra !). Un compagnon pour la vie.",price:"29,90 \u20ac",category:"coup-de-coeur",emoji:"\ud83e\uddf8",link:"https://www.amazon.fr/s?k=doudou+personnalise+prenom+bebe"},
+{id:15,name:"Bo\u00eete \u00e0 souvenirs de naissance",description:"Bo\u00eete en bois pour garder les premiers souvenirs : bracelet, m\u00e8che de cheveux, petite chaussure...",price:"24,90 \u20ac",category:"coup-de-coeur",emoji:"\ud83d\udce6",link:"https://www.amazon.fr/s?k=boite+souvenirs+naissance+bebe"},
+{id:16,name:"Ensemble traditionnel kabyle gar\u00e7on",description:"Tenue traditionnelle kabyle pour gar\u00e7on : veste, chemise, sarouel et chapeau. Pour les c\u00e9r\u00e9monies et f\u00eates familiales !",price:"80,00 \u20ac",category:"coup-de-coeur",emoji:"\ud83c\udf1e",link:"https://www.lehnacouture.com/product-page/ensemble-kabyle-gar%C3%A7on"},
+{id:17,name:"Album photo naissance personnalis\u00e9",description:"Album photo premium pour capturer chaque moment magique de l'arriv\u00e9e de b\u00e9b\u00e9. Couverture personnalisable.",price:"34,90 \u20ac",category:"coup-de-coeur",emoji:"\ud83d\udcf7",link:"https://www.amazon.fr/s?k=album+photo+naissance+personnalise"},
+{id:18,name:"Mobile musical pour le lit",description:"Mobile musical avec m\u00e9lodies douces et personnages suspendus. Apaise et \u00e9veille b\u00e9b\u00e9 avant le sommeil.",price:"39,99 \u20ac",category:"coup-de-coeur",emoji:"\ud83c\udfb5",link:"https://www.vertbaudet.fr/jeux-et-eveil/eveil/mobiles.htm"}
+];
+var reservations = JSON.parse(localStorage.getItem('birthlist_reservations') || '{}');
+function renderGifts(category) {
+category = category || 'all';
+var grid = document.getElementById('giftGrid');
+grid.innerHTML = '';
+var filtered = category === 'all' ? gifts : gifts.filter(function(g) { return g.category === category; });
+filtered.forEach(function(gift) {
+var isReserved = reservations[gift.id];
+var card = document.createElement('div');
+card.className = 'gift-card' + (isReserved ? ' reserved' : '');
+var catLabel = gift.category === 'essential' ? 'Essentiel' : (gift.category === 'practical' ? 'Pratique' : 'Coup de coeur');
+var reservedByName = isReserved === 'anonymous' ? 'Par un invit\u00e9 anonyme' : 'Par ' + isReserved;
+card.innerHTML = '<div class="reserved-overlay"><div class="reserved-text">\u2705 D\u00e9j\u00e0 r\u00e9serv\u00e9</div><div class="reserved-by">' + reservedByName + '</div></div>' +
+'<div class="gift-image-placeholder">' + gift.emoji + '</div>' +
+'<div class="gift-content">' +
+'<span class="gift-category ' + gift.category + '">' + catLabel + '</span>' +
+'<h3 class="gift-name">' + gift.name + '</h3>' +
+'<p class="gift-description">' + gift.description + '</p>' +
+'<div class="gift-price">' + gift.price + '</div>' +
+'<div class="gift-actions">' +
+'<button class="btn-reserve" onclick="openModal(' + gift.id + ')"' + (isReserved ? ' disabled' : '') + '>' + (isReserved ? '\u2705 R\u00e9serv\u00e9' : '\ud83d\udc49 R\u00e9server') + '</button>' +
+'<a href="' + gift.link + '" target="_blank" class="btn-link">Voir \u2197</a>' +
+'</div></div>';
+grid.appendChild(card);
+}); }
+document.querySelectorAll('.category-tab').forEach(function(tab) {
+tab.addEventListener('click', function() {
+document.querySelectorAll('.category-tab').forEach(function(t) { t.classList.remove('active'); });
+tab.classList.add('active');
+renderGifts(tab.dataset.category);
+}); });
+var currentGiftId = null;
+function openModal(giftId) {
+currentGiftId = giftId;
+var gift = gifts.find(function(g) { return g.id === giftId; });
+document.getElementById('modalTitle').textContent = '\ud83c\udf73 R\u00e9server : ' + gift.name;
+document.getElementById('nameInput').value = '';
+document.getElementById('anonymousCheck').checked = false;
+document.getElementById('nameInput').disabled = false;
+document.getElementById('modalOverlay').classList.add('active'); }
+document.getElementById('cancelBtn').addEventListener('click', function() { document.getElementById('modalOverlay').classList.remove('active'); currentGiftId = null; });
+document.getElementById('modalOverlay').addEventListener('click', function(e) { if (e.target === document.getElementById('modalOverlay')) { document.getElementById('modalOverlay').classList.remove('active'); currentGiftId = null; } });
+document.getElementById('anonymousCheck').addEventListener('change', function(e) { document.getElementById('nameInput').disabled = e.target.checked; if (e.target.checked) document.getElementById('nameInput').value = ''; });
+document.getElementById('confirmBtn').addEventListener('click', function() {
+if (currentGiftId === null) return;
+var isAnonymous = document.getElementById('anonymousCheck').checked;
+var name = isAnonymous ? 'anonymous' : (document.getElementById('nameInput').value.trim() || 'anonymous');
+reservations[currentGiftId] = name;
+localStorage.setItem('birthlist_reservations', JSON.stringify(reservations));
+document.getElementById('modalOverlay').classList.remove('active');
+var toast = document.getElementById('toast'); toast.classList.add('show');
+setTimeout(function() { toast.classList.remove('show'); }, 3000);
+launchConfetti();
+currentGiftId = null;
+renderGifts(document.querySelector('.category-tab.active').dataset.category); });
+function launchConfetti() {
+var container = document.getElementById('confettiContainer');
+var colors = ['#4A90D9', '#F4A261', '#48BB78', '#C0392B', '#D4A574', '#89CFF0', '#FFD700'];
+for (var i = 0; i < 50; i++) {
+var confetti = document.createElement('div');
+confetti.className = 'confetti';
+confetti.style.left = Math.random() * 100 + '%';
+confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+confetti.style.animationDelay = Math.random() * 2 + 's';
+confetti.style.animationDuration = (2 + Math.random() * 2) + 's';
+confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+confetti.style.width = (5 + Math.random() * 10) + 'px';
+confetti.style.height = (5 + Math.random() * 10) + 'px';
+container.appendChild(confetti); }
+setTimeout(function() { container.innerHTML = ''; }, 4000); }
+
+renderGifts();
+</script>
+</body>
+</html>
