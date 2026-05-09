@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Liste de naissance - Sofiane &amp; Katia</title>
+<meta name="description" content="Notre petit bonhomme arrive bientôt. Rejoignez-nous pour l'accueillir comme il se doit !" />
+<meta property="og:title" content="Liste de naissance - Sofiane & Katia" />
+<meta property="og:description" content="Notre petit bonhomme arrive le 7 août 2026 ❤️" />
+<meta property="og:type" content="website" />
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/css/style.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%91%B6%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+
+<!-- Confetti -->
+<div class="confetti-container" id="confettiContainer"></div>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <div class="nav-brand" id="navBrand">Sofiane &amp; Katia</div>
+    <ul class="nav-links">
+      <li><a href="#liste">Liste</a></li>
+      <li><a href="#cagnotte">Cagnotte</a></li>
+      <li><a href="#livre-or">Livre d'or</a></li>
+      <li><a href="#devine-prenom">Devine</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="clouds-layer">
+    <div class="cloud cloud-1"></div>
+    <div class="cloud cloud-2"></div>
+    <div class="cloud cloud-3"></div>
+    <div class="cloud cloud-4"></div>
+    <div class="cloud cloud-5"></div>
+  </div>
+  <div class="bears-layer">
+    <span class="bear bear-1">&#x1F9F8;</span>
+    <span class="bear bear-2">&#x1F9F8;</span>
+    <span class="bear bear-3">&#x1F9F8;</span>
+    <span class="bear bear-4">&#x1F9F8;</span>
+    <span class="bear bear-5">&#x1F9F8;</span>
+  </div>
+
+  <div class="hero-content">
+    <div class="emoji-big">&#128118;</div>
+    <p class="parents" id="parentsLabel">Sofiane &amp; Katia</p>
+    <h1>Un petit bonhomme arrive...</h1>
+    <p class="subtitle">Et nous avons besoin de vous pour l'accueillir comme il se doit !</p>
+
+    <div class="secret-badge">&#128274; Le prénom est un secret... pour l'instant !</div>
+
+    <div class="countdown" id="countdown">
+      <div class="countdown-item"><span class="number" id="days">--</span><span class="label">Jours</span></div>
+      <div class="countdown-item"><span class="number" id="hours">--</span><span class="label">Heures</span></div>
+      <div class="countdown-item"><span class="number" id="minutes">--</span><span class="label">Minutes</span></div>
+      <div class="countdown-item"><span class="number" id="seconds">--</span><span class="label">Secondes</span></div>
+    </div>
+
+    <a href="#liste" class="hero-cta">&#127873; Voir la liste de cadeaux</a>
+  </div>
+</section>
+
+<!-- Intro -->
+<section class="intro-section" id="intro">
+  <div class="intro-card">
+    <span class="intro-icon">&#x1F9F8;</span>
+    <h2 class="intro-title">Un petit garçon arrive bientôt !</h2>
+    <p class="intro-text">
+      Nous sommes tellement heureux de partager cette nouvelle avec vous.<br />
+      Notre petit garçon est attendu pour le <strong>7 août 2026</strong>, et chaque jour qui passe nous rapproche du moment le plus beau de notre vie. &#x1F499;
+    </p>
+    <p class="intro-text">
+      Cette liste a été préparée avec soin pour vous aider à choisir un cadeau qui lui sera vraiment utile.
+      Vous pouvez aussi <strong>participer à une cagnotte</strong> pour les cadeaux les plus coûteux, ou simplement nous laisser un petit mot dans le livre d'or.
+    </p>
+    <div class="intro-divider"><hr /><span>&#x1F9F8;</span><hr /></div>
+    <div class="intro-thanks">
+      <strong>Un grand merci à chacun d'entre vous</strong> &#x1F64F;<br />
+      À nos familles, nos amis proches, et tous ceux qui nous entourent avec tant d'amour.<br />
+      Votre présence compte déjà plus que tout - notre petit garçon a beaucoup de chance de vous avoir. &#x2764;&#xFE0F;
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-bar" id="statsBar"></div>
+  </div>
+</section>
+
+<div class="kabyle-divider"></div>
+
+<!-- Liste de cadeaux -->
+<section class="section" id="liste">
+  <h2 class="section-title"><span class="emoji">&#127873;</span>Notre liste de cadeaux</h2>
+  <p class="section-subtitle">
+    Réservez un cadeau pour être sûr qu'il ne sera pas pris en double, ou participez à une cagnotte pour les plus gros articles.
+  </p>
+
+  <div class="category-tabs" id="categoryTabs">
+    <button class="category-tab active" data-category="all">&#127760; Tout voir</button>
+    <button class="category-tab" data-category="essential">&#9989; Essentiel</button>
+    <button class="category-tab" data-category="practical">&#128295; Pratique</button>
+    <button class="category-tab" data-category="coup-de-coeur">&#10084;&#65039; Coup de coeur</button>
+  </div>
+
+  <div class="gift-grid" id="giftGrid">
+    <div class="skeleton skeleton-card"></div>
+    <div class="skeleton skeleton-card"></div>
+    <div class="skeleton skeleton-card"></div>
+  </div>
+</section>
+
+<div class="yaz-divider">
+  <span>&#10047;</span><span>&#10047;</span><span>&#x2D49;</span><span>&#10047;</span><span>&#10047;</span>
+</div>
+
+<!-- Livre d'or -->
+<section class="section section-alt" id="livre-or">
+  <h2 class="section-title"><span class="emoji">&#128221;</span>Livre d'or</h2>
+  <p class="section-subtitle">Laissez-nous un petit mot, une pensée, un conseil de parent... Tout est bon à prendre !</p>
+
+  <div class="guestbook-form">
+    <h3>&#9997;&#65039; Écrire un message</h3>
+    <div class="modal-field">
+      <label for="gbAuthor">Votre nom</label>
+      <input type="text" id="gbAuthor" placeholder="Ex : Tata Nadia" maxlength="80" />
+    </div>
+    <div class="modal-field">
+      <label for="gbMessage">Votre message</label>
+      <textarea id="gbMessage" placeholder="Félicitations, conseils, anecdotes..." maxlength="1000"></textarea>
+    </div>
+    <button id="gbSubmit">&#128172; Envoyer</button>
+  </div>
+
+  <div class="messages-grid" id="messagesGrid">
+    <div class="empty-state">Soyez le premier à laisser un message !</div>
+  </div>
+</section>
+
+<!-- Devine le prénom -->
+<section class="guess-section" id="devine-prenom">
+  <div class="guess-card">
+    <div class="icon">&#128302;</div>
+    <h3>Devine le prénom !</h3>
+    <p>Le prénom est un secret, mais saurez-vous deviner ? Proposez le vôtre, on révèlera le gagnant le jour de la naissance !</p>
+
+    <form id="guessForm">
+      <div class="modal-field">
+        <label for="guessAuthor">Votre nom</label>
+        <input type="text" id="guessAuthor" placeholder="Ex : Cousin Amine" maxlength="80" required />
+      </div>
+      <div class="modal-field">
+        <label for="guessName">Le prénom que vous proposez</label>
+        <input type="text" id="guessName" placeholder="Ex : Ayour" maxlength="60" required />
+      </div>
+      <div class="modal-field">
+        <label for="guessReason">Pourquoi ce prénom ? (optionnel)</label>
+        <textarea id="guessReason" placeholder="Une intuition, un prénom de famille..." maxlength="300"></textarea>
+      </div>
+      <button type="submit">&#127881; Valider ma proposition</button>
+    </form>
+
+    <div class="guess-count" id="guessCount">Soyez le premier à proposer !</div>
+  </div>
+</section>
+
+<div class="kabyle-divider"></div>
+
+<!-- Footer -->
+<footer>
+  <div class="heart">&#10084;&#65039;</div>
+  <p>Merci de faire partie de cette belle aventure avec nous !</p>
+  <p style="margin-top: 10px; font-size: 0.85rem; opacity: 0.6;">Fait avec amour pour notre petit bonhomme &#128118;</p>
+  <a href="/admin" class="admin-link">Admin</a>
+</footer>
+
+<!-- Modal: Réservation -->
+<div class="modal-overlay" id="reserveModal">
+  <div class="modal">
+    <h3 id="reserveTitle">&#127873; Réserver ce cadeau</h3>
+    <p class="modal-desc">Entrez votre nom pour réserver cet article. Il apparaîtra comme réservé pour les autres invités.</p>
+    <div class="modal-field">
+      <label for="reserveName">Votre nom</label>
+      <input type="text" id="reserveName" placeholder="Ex : Tonton Karim" maxlength="80" />
+    </div>
+    <div class="checkbox-group">
+      <input type="checkbox" id="reserveAnon" />
+      <label for="reserveAnon">Je préfère rester anonyme</label>
+    </div>
+    <div class="modal-field">
+      <label for="reserveMsg">Un mot pour les parents (optionnel)</label>
+      <textarea id="reserveMsg" placeholder="Félicitations, gros bisous..." maxlength="500"></textarea>
+    </div>
+    <div class="modal-buttons">
+      <button class="btn-cancel" data-close-modal>Annuler</button>
+      <button class="btn-confirm" id="reserveConfirm">&#10003; Confirmer</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Cagnotte -->
+<div class="modal-overlay" id="poolModal">
+  <div class="modal">
+    <h3 id="poolTitle">&#128176; Participer à la cagnotte</h3>
+    <p class="modal-desc" id="poolDesc">Contribuez du montant de votre choix pour offrir ce cadeau en commun.</p>
+
+    <div class="modal-info" id="poolInfo"></div>
+
+    <div class="modal-field">
+      <label for="poolAmount">Montant de votre contribution (€)</label>
+      <input type="number" id="poolAmount" min="1" step="1" placeholder="20" />
+      <div class="amount-suggestions">
+        <button type="button" data-amount="10">10 €</button>
+        <button type="button" data-amount="20">20 €</button>
+        <button type="button" data-amount="50">50 €</button>
+        <button type="button" data-amount="100">100 €</button>
+      </div>
+    </div>
+    <div class="modal-field">
+      <label for="poolName">Votre nom</label>
+      <input type="text" id="poolName" placeholder="Ex : Mamie Zohra" maxlength="80" />
+    </div>
+    <div class="checkbox-group">
+      <input type="checkbox" id="poolAnon" />
+      <label for="poolAnon">Je préfère rester anonyme</label>
+    </div>
+    <div class="modal-field">
+      <label for="poolMsg">Un petit mot (optionnel)</label>
+      <textarea id="poolMsg" placeholder="Avec tout notre amour..." maxlength="500"></textarea>
+    </div>
+
+    <div class="modal-info" style="background: rgba(244, 162, 97, 0.12); border-left-color: var(--accent); color: var(--accent-dark);">
+      &#128161; <strong>Après validation</strong>, nous vous recontacterons pour convenir du moyen de paiement (virement, liquide, etc.).
+    </div>
+
+    <div class="modal-buttons">
+      <button class="btn-cancel" data-close-modal>Annuler</button>
+      <button class="btn-confirm pool" id="poolConfirm">&#10003; Je contribue</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script src="/js/main.js"></script>
+</body>
+</html>
