@@ -1,0 +1,233 @@
+[
+  {
+    "id": "poussette-trio",
+    "name": "Poussette trio Moov 2",
+    "brand": "Kinderkraft",
+    "description": "Poussette combinée 3-en-1 (poussette + nacelle + siège auto). Utilisable dès la naissance jusqu'à 22 kg. Le must-have pour les promenades en famille.",
+    "price": 349.99,
+    "category": "essential",
+    "emoji": "🍼",
+    "link": "https://www.vertbaudet.fr/poussette-trio-moov-2-pratique-et-confortable-noir.htm",
+    "type": "reservation"
+  },
+  {
+    "id": "siege-auto",
+    "name": "Siège auto évolutif i-Size",
+    "brand": "Nania",
+    "description": "Siège auto évolutif 40-150 cm, homologué i-Size. Sécurité maximale pour les trajets en voiture.",
+    "price": 76.93,
+    "category": "essential",
+    "emoji": "🚗",
+    "link": "https://www.carrefour.fr/r/bebe/voyage/sieges-auto",
+    "type": "reservation"
+  },
+  {
+    "id": "lit-cocoon",
+    "name": "Lit bébé Cocoon + matelas",
+    "brand": "Vertbaudet",
+    "description": "Lit bébé en bois massif avec barreaux, finition blanche. Matelas adapté inclus pour des nuits douces et sécurisées.",
+    "price": 149.0,
+    "category": "essential",
+    "emoji": "🛏️",
+    "link": "https://www.vertbaudet.fr/chambre-et-rangement/chambre/lit-bebe-lit-enfant/lit-bebe/matiere%3Dbois.htm",
+    "type": "reservation"
+  },
+  {
+    "id": "pack-gigoteuses",
+    "name": "Pack 3 gigoteuses",
+    "brand": "Vertbaudet",
+    "description": "Lot de 3 gigoteuses en coton bio, tailles 0-6 mois. Motifs doux et étoiles.",
+    "price": 39.99,
+    "category": "essential",
+    "emoji": "😴",
+    "link": "https://www.vertbaudet.fr/vetements-bebe/gigoteuse.htm",
+    "type": "reservation"
+  },
+  {
+    "id": "pack-bodies",
+    "name": "Lot bodies & pyjamas x5",
+    "brand": "Vertbaudet",
+    "description": "Pack de 5 ensembles bodies et pyjamas en coton, couleurs douces pour garçon. L'essentiel pour les premiers mois.",
+    "price": 44.99,
+    "category": "essential",
+    "emoji": "👕",
+    "link": "https://www.vertbaudet.fr/vetements-bebe/naissance.htm",
+    "type": "reservation"
+  },
+  {
+    "id": "biberons-avent",
+    "name": "Lot biberons Natural+",
+    "brand": "Philips Avent",
+    "description": "Pack de 4 biberons avec tétines débit lent. Design anti-colique pour un allaitement serein.",
+    "price": 29.99,
+    "category": "essential",
+    "emoji": "🍼",
+    "link": "https://www.amazon.fr/s?k=biberons+philips+avent+natural",
+    "type": "reservation"
+  },
+  {
+    "id": "couverture-emmaillotage",
+    "name": "Couverture d'emmaillotage coton bio",
+    "brand": "",
+    "description": "Couverture douce et légère en coton bio, idéale pour emmailloter bébé en toute sécurité.",
+    "price": 24.99,
+    "category": "essential",
+    "emoji": "🫧",
+    "link": "https://www.amazon.fr/s?k=couverture+emmaillotage+bebe+garcon",
+    "type": "reservation"
+  },
+  {
+    "id": "table-langer",
+    "name": "Table à langer pliante",
+    "brand": "Aubert",
+    "description": "Table à langer compacte et pliante, facile à ranger. Rangements intégrés pour les affaires de bébé.",
+    "price": 89.9,
+    "category": "practical",
+    "emoji": "🪑",
+    "link": "https://www.aubert.com/c/3486153/produits/chambre/table-a-langer",
+    "type": "reservation"
+  },
+  {
+    "id": "transat-babybjorn",
+    "name": "Transat évolutif",
+    "brand": "Babybjörn",
+    "description": "Transat ergonomique qui grandit avec bébé. Idéal pour les moments d'éveil et de détente.",
+    "price": 149.0,
+    "category": "practical",
+    "emoji": "💺",
+    "link": "https://www.amazon.fr/s?k=transat+bebe+babybjorn",
+    "type": "reservation"
+  },
+  {
+    "id": "babycook-neo",
+    "name": "Babycook Néo",
+    "brand": "Béaba",
+    "description": "Robot cuiseur mixeur pour préparer les repas de bébé maison. Cuit, mixe, décongèle et réchauffe.",
+    "price": 139.99,
+    "category": "practical",
+    "emoji": "🍲",
+    "link": "https://www.beaba.com/fr-fr/babycook-neo",
+    "type": "reservation"
+  },
+  {
+    "id": "thermometre-bain",
+    "name": "Thermomètre de bain électronique",
+    "brand": "",
+    "description": "Thermomètre de bain avec affichage LED. Indicateur de température pour un bain en toute sécurité.",
+    "price": 14.99,
+    "category": "practical",
+    "emoji": "🌡️",
+    "link": "https://www.amazon.fr/s?k=thermometre+bain+bebe",
+    "type": "reservation"
+  },
+  {
+    "id": "veilleuse-pabobo",
+    "name": "Veilleuse nomade",
+    "brand": "Pabobo",
+    "description": "Veilleuse nomade rechargeable, douce lumière pour rassurer bébé la nuit.",
+    "price": 34.9,
+    "category": "practical",
+    "emoji": "🌟",
+    "link": "https://www.amazon.fr/s?k=veilleuse+nomade+bebe+pabobo",
+    "type": "reservation"
+  },
+  {
+    "id": "tapis-eveil",
+    "name": "Tapis d'éveil arches de jeu",
+    "brand": "",
+    "description": "Tapis d'éveil avec arches et jouets suspendus. Stimule l'éveil sensoriel dès les premiers mois.",
+    "price": 49.99,
+    "category": "practical",
+    "emoji": "🎁",
+    "link": "https://www.vertbaudet.fr/jeux-et-eveil/eveil/tapis-d-eveil.htm",
+    "type": "reservation"
+  },
+  {
+    "id": "doudou-prenom",
+    "name": "Doudou personnalisé prénom",
+    "brand": "",
+    "description": "Doudou doux brodé du prénom de bébé (quand on le connaîtra !). Un compagnon pour la vie.",
+    "price": 29.9,
+    "category": "coup-de-coeur",
+    "emoji": "🧸",
+    "link": "https://www.amazon.fr/s?k=doudou+personnalise+prenom+bebe",
+    "type": "reservation"
+  },
+  {
+    "id": "boite-souvenirs",
+    "name": "Boîte à souvenirs de naissance",
+    "brand": "",
+    "description": "Boîte en bois pour garder les premiers souvenirs : bracelet de maternité, mèche de cheveux, petite chaussure...",
+    "price": 24.9,
+    "category": "coup-de-coeur",
+    "emoji": "📦",
+    "link": "https://www.amazon.fr/s?k=boite+souvenirs+naissance+bebe",
+    "type": "reservation"
+  },
+  {
+    "id": "tenue-kabyle",
+    "name": "Ensemble traditionnel kabyle garçon",
+    "brand": "",
+    "description": "Tenue traditionnelle kabyle pour petit garçon : veste, chemise, sarouel et chapeau. Pour les cérémonies et fêtes de famille.",
+    "price": 80.0,
+    "category": "coup-de-coeur",
+    "emoji": "🌞",
+    "link": "https://www.lehnacouture.com/product-page/ensemble-kabyle-gar%C3%A7on",
+    "type": "reservation"
+  },
+  {
+    "id": "album-photo",
+    "name": "Album photo naissance personnalisé",
+    "brand": "",
+    "description": "Album photo premium pour capturer chaque moment magique. Couverture personnalisable.",
+    "price": 34.9,
+    "category": "coup-de-coeur",
+    "emoji": "📷",
+    "link": "https://www.amazon.fr/s?k=album+photo+naissance+personnalise",
+    "type": "reservation"
+  },
+  {
+    "id": "mobile-musical",
+    "name": "Mobile musical pour le lit",
+    "brand": "",
+    "description": "Mobile musical avec mélodies douces et personnages suspendus. Apaise bébé avant le sommeil.",
+    "price": 39.99,
+    "category": "coup-de-coeur",
+    "emoji": "🎵",
+    "link": "https://www.vertbaudet.fr/jeux-et-eveil/eveil/mobiles.htm",
+    "type": "reservation"
+  },
+  {
+    "id": "cagnotte-chambre",
+    "name": "Cagnotte : aménagement de la chambre",
+    "brand": "",
+    "description": "Commode, fauteuil d'allaitement, déco murale... Participez tous ensemble à créer le cocon de notre petit bonhomme.",
+    "price": 600.0,
+    "category": "cagnotte",
+    "emoji": "🏠",
+    "link": "",
+    "type": "pool"
+  },
+  {
+    "id": "cagnotte-puericulture",
+    "name": "Cagnotte : pack puériculture",
+    "brand": "",
+    "description": "Baignoire, transat de bain, écoute-bébé, tire-lait... Tout le nécessaire du quotidien en une seule cagnotte.",
+    "price": 350.0,
+    "category": "cagnotte",
+    "emoji": "🛁",
+    "link": "",
+    "type": "pool"
+  },
+  {
+    "id": "cagnotte-livres",
+    "name": "Cagnotte : bibliothèque de naissance",
+    "brand": "",
+    "description": "Des livres doux à lire chaque soir, des imagiers, des comptines en français, kabyle et arabe. Un trésor pour grandir.",
+    "price": 150.0,
+    "category": "cagnotte",
+    "emoji": "📚",
+    "link": "",
+    "type": "pool"
+  }
+]
