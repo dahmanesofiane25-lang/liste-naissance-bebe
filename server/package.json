@@ -1,0 +1,18 @@
+{
+  "name": "liste-naissance-bebe",
+  "version": "1.0.0",
+  "description": "Liste de naissance - Petit bonhomme 07/08/2026",
+  "main": "server.js",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.3.0",
+    "express": "^4.21.0"
+  }
+}
