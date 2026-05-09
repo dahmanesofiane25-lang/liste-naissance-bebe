@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Admin - Liste de naissance</title>
+<meta name="robots" content="noindex, nofollow" />
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/css/admin.css" />
+</head>
+<body>
+
+<!-- Login -->
+<div class="login-screen" id="loginScreen">
+  <form class="login-card" id="loginForm">
+    <h1>🔐 Administration</h1>
+    <p class="sub">Liste de naissance - Sofiane &amp; Katia</p>
+    <div class="field">
+      <label for="loginUsername">Identifiant</label>
+      <input type="text" id="loginUsername" autocomplete="username" required />
+    </div>
+    <div class="field">
+      <label for="loginPassword">Mot de passe</label>
+      <input type="password" id="loginPassword" autocomplete="current-password" required />
+    </div>
+    <button type="submit">Se connecter</button>
+    <div class="error-msg" id="loginError"></div>
+  </form>
+</div>
+
+<!-- Dashboard -->
+<div class="admin-app" id="adminApp">
+  <header class="admin-header">
+    <h1>🍼 Admin - Liste de naissance</h1>
+    <div class="user">
+      <a href="/" target="_blank" class="btn-view-site">👁️ Voir le site</a>
+      <span id="adminUsername"></span>
+      <button class="btn-logout" id="logoutBtn">Déconnexion</button>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-panel="items">🎁 Cadeaux <span class="badge" id="badgeItems">0</span></button>
+    <button class="tab" data-panel="reservations">✅ Réservations <span class="badge" id="badgeReservations">0</span></button>
+    <button class="tab" data-panel="contributions">💰 Cagnottes <span class="badge" id="badgeContributions">0</span></button>
+    <button class="tab" data-panel="guestbook">📝 Livre d'or <span class="badge" id="badgeGuestbook">0</span></button>
+    <button class="tab" data-panel="guesses">🔮 Prénoms devinés <span class="badge" id="badgeGuesses">0</span></button>
+  </nav>
+
+  <div class="panel-container">
+
+    <!-- Items panel -->
+    <section class="panel active" id="panelItems">
+      <div class="admin-stats" id="adminStats"></div>
+
+      <div class="panel-header">
+        <h2>Gestion des cadeaux</h2>
+        <button class="btn-primary" id="btnAddItem">+ Ajouter un cadeau</button>
+      </div>
+
+      <div class="admin-list" id="itemsList"></div>
+    </section>
+
+    <!-- Reservations panel -->
+    <section class="panel" id="panelReservations">
+      <div class="panel-header">
+        <h2>Réservations</h2>
+      </div>
+      <div id="reservationsList"></div>
+    </section>
+
+    <!-- Contributions panel -->
+    <section class="panel" id="panelContributions">
+      <div class="panel-header">
+        <h2>Contributions cagnotte</h2>
+      </div>
+      <div id="contributionsList"></div>
+    </section>
+
+    <!-- Guestbook panel -->
+    <section class="panel" id="panelGuestbook">
+      <div class="panel-header">
+        <h2>Livre d'or</h2>
+      </div>
+      <div id="guestbookList"></div>
+    </section>
+
+    <!-- Guesses panel -->
+    <section class="panel" id="panelGuesses">
+      <div class="panel-header">
+        <h2>Propositions de prénom</h2>
+      </div>
+      <div id="guessesList"></div>
+    </section>
+
+  </div>
+</div>
+
+<!-- Item modal -->
+<div class="modal-overlay" id="itemModal">
+  <div class="modal">
+    <h3 id="itemModalTitle">Nouveau cadeau</h3>
+
+    <!-- Scraper -->
+    <div class="scrape-bar">
+      <input type="url" id="scrapeUrl" placeholder="Coller une URL Amazon, Vertbaudet, Aubert..." />
+      <button type="button" id="scrapeBtn">🔍 Remplir auto</button>
+    </div>
+
+    <form id="itemForm">
+      <input type="hidden" id="itemId" />
+
+      <div class="field">
+        <label for="itemName">Nom du cadeau *</label>
+        <input type="text" id="itemName" required maxlength="200" />
+      </div>
+
+      <div class="field">
+        <label for="itemDescription">Description</label>
+        <textarea id="itemDescription" maxlength="800"></textarea>
+      </div>
+
+      <div class="field">
+        <div class="row">
+          <div>
+            <label for="itemPrice">Prix (€) *</label>
+            <input type="number" id="itemPrice" step="0.01" min="0" required />
+          </div>
+          <div>
+            <label for="itemCategory">Catégorie</label>
+            <select id="itemCategory">
+              <option value="essential">Essentiel</option>
+              <option value="practical">Pratique</option>
+              <option value="coup-de-coeur">Coup de coeur</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="itemImageUrl">URL de l'image</label>
+        <input type="url" id="itemImageUrl" placeholder="https://..." />
+      </div>
+
+      <div class="field">
+        <label for="itemProductUrl">URL du produit</label>
+        <input type="url" id="itemProductUrl" placeholder="https://..." />
+      </div>
+
+      <div class="field">
+        <div class="row">
+          <div>
+            <label for="itemEmoji">Emoji (fallback)</label>
+            <input type="text" id="itemEmoji" maxlength="4" placeholder="🎁" />
+          </div>
+          <div>
+            <label for="itemSortOrder">Ordre d'affichage</label>
+            <input type="number" id="itemSortOrder" value="0" />
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="checkbox">
+          <input type="checkbox" id="itemAllowPool" checked />
+          <label for="itemAllowPool">Autoriser la cagnotte (achat partiel)</label>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" id="itemArchived" />
+          <label for="itemArchived">Archiver (masquer du site public)</label>
+        </div>
+      </div>
+
+      <div class="modal-buttons">
+        <button type="button" class="btn-cancel" data-close-modal>Annuler</button>
+        <button type="submit" class="btn-save">💾 Enregistrer</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="/js/admin.js"></script>
+</body>
+</html>

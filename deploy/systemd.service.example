@@ -1,0 +1,34 @@
+# =====================================================================
+# Alternative à PM2 : unité systemd
+# À placer dans /etc/systemd/system/liste-naissance.service
+#
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable liste-naissance
+#   sudo systemctl start liste-naissance
+#   sudo systemctl status liste-naissance
+# =====================================================================
+
+[Unit]
+Description=Liste de naissance - Sofiane & Katia
+After=network.target
+
+[Service]
+Type=simple
+User=sofiane
+WorkingDirectory=/home/sofiane/liste-naissance-bebe
+ExecStart=/usr/bin/node server/index.js
+Restart=always
+RestartSec=5
+Environment=NODE_ENV=production
+# Chargement des variables depuis .env :
+EnvironmentFile=/home/sofiane/liste-naissance-bebe/.env
+
+# Hardening
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=read-only
+ReadWritePaths=/home/sofiane/liste-naissance-bebe/data /home/sofiane/liste-naissance-bebe/uploads
+
+[Install]
+WantedBy=multi-user.target
